@@ -1,0 +1,54 @@
+name: Minute health.json updater (status-updates)
+
+on:
+  schedule:
+    - cron: "*/1 * * * *"   # every minute (UTC)
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: status-updates
+          fetch-depth: 0
+
+      - name: Ensure branch exists
+        run: |
+          if ! git ls-remote --exit-code origin status-updates >/dev/null 2>&1; then
+            echo "Creating status-updates branch"
+            git checkout --orphan status-updates
+            git rm -rf . || true
+            git commit --allow-empty -m "init status-updates"
+            git push origin status-updates
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install deps
+        run: pip install requests
+
+      - name: Run exporter
+        run: python exporter.py
+        env:
+          DYNATRACE_URL: ${{ secrets.DYNATRACE_URL }}
+          DYNATRACE_TOKEN: ${{ secrets.DYNATRACE_TOKEN }}
+          CA_BUNDLE: ${{ secrets.CA_BUNDLE }}   # optional (Managed)
+          VERIFY_SSL: "true"
+
+      - name: Commit & push health.json if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add health.json
+          if git diff --cached --quiet; then
+            echo "No changes in health.json"
+            exit 0
+          fi
+          git commit -m "minute update: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push origin HEAD:status-updates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
