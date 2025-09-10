@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2025-09-10T11:02:00+00:00",
+  "updatedAt": "2025-09-10T11:04:00+00:00",
   "components": [
     {
       "name": "Public Website (Global)",
@@ -105,6 +105,10 @@
       },
       {
         "t": "2025-09-10T11:02:00Z",
+        "availability": 1.0
+      },
+      {
+        "t": "2025-09-10T11:04:00Z",
         "availability": 1.0
       }
     ]
