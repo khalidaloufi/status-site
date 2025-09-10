@@ -1,0 +1,68 @@
+{
+  "updatedAt": "2025-09-09T11:09:00+00:00",
+  "components": [
+    {
+      "name": "Public Website (Global)",
+      "status": "operational"
+    },
+    {
+      "name": "Public Website (KSA)",
+      "status": "operational",
+      "p95_load_ms": null,
+      "ttfb_ms": null,
+      "availability": 1.0
+    },
+    {
+      "name": "Publishing Pipeline",
+      "status": "operational",
+      "last_publish_age_h": 3
+    }
+  ],
+  "incidents": [],
+  "uptime": [
+    {
+      "date": "2025-09-08",
+      "pct": 1.0
+    },
+    {
+      "date": "2025-09-09",
+      "pct": 1.0
+    }
+  ],
+  "daily_uptime": {
+    "Public Website (KSA)": [
+      {
+        "date": "2025-09-08",
+        "pct": 1.0
+      },
+      {
+        "date": "2025-09-09",
+        "pct": 1.0
+      }
+    ]
+  },
+  "minute_samples": {
+    "Public Website (KSA)": [
+      {
+        "t": "2025-09-08T10:35:00Z",
+        "availability": 1.0
+      },
+      {
+        "t": "2025-09-08T11:04:00Z",
+        "availability": 1.0
+      },
+      {
+        "t": "2025-09-08T11:17:00Z",
+        "availability": 1.0
+      },
+      {
+        "t": "2025-09-08T11:19:00Z",
+        "availability": 1.0
+      },
+      {
+        "t": "2025-09-09T11:09:00Z",
+        "availability": 1.0
+      }
+    ]
+  }
+}

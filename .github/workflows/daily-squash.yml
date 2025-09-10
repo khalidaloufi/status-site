@@ -1,0 +1,38 @@
+name: Daily squash -> main
+
+on:
+  schedule:
+    - cron: "0 21 * * *"   # 00:00 Asia/Riyadh daily
+  workflow_dispatch:
+
+jobs:
+  squash:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Fetch latest health.json from status-updates
+        run: |
+          git fetch origin status-updates:status-updates
+          mkdir -p /tmp/status-updates
+          git show status-updates:health.json > /tmp/status-updates/health.json
+
+      - name: Copy into main working tree
+        run: cp /tmp/status-updates/health.json ./health.json
+
+      - name: Commit to main only if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add health.json
+          if git diff --cached --quiet; then
+            echo "No main update needed (same health.json)"; exit 0
+          fi
+          git commit -m "daily health.json (Riyadh day $(date -u +%Y-%m-%d))"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
