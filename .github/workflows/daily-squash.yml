@@ -8,6 +8,7 @@ on:
 jobs:
   squash:
     runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
