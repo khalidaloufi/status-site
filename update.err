@@ -884,3 +884,32 @@ From https://github.com/khalidaloufi/status-site
  * branch            status-updates -> FETCH_HEAD
 To https://github.com/khalidaloufi/status-site.git
    df87814..1fda09f  status-updates -> status-updates
+Reset branch 'status-updates'
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+remote: error: GH013: Repository rule violations found for refs/heads/status-updates.        
+remote: 
+remote: - GITHUB PUSH PROTECTION        
+remote:   —————————————————————————————————————————        
+remote:     Resolve the following violations before pushing again        
+remote: 
+remote:     - Push cannot contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn how to resolve a blocked push        
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push        
+remote:             
+remote:             
+remote:       —— Dynatrace API Token ———————————————————————————————        
+remote:        locations:        
+remote:          - commit: 748b9b83f6c027887eb75f603dc3a3696f5b95e1        
+remote:            path: secrets/env:2        
+remote:             
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.        
+remote:        https://github.com/khalidaloufi/status-site/security/secret-scanning/unblock-secret/32XqWqRQNzdyekaqGpemxtzqTkU        
+remote:             
+remote: 
+remote: 
+To https://github.com/khalidaloufi/status-site.git
+ ! [remote rejected] status-updates -> status-updates (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/khalidaloufi/status-site.git'

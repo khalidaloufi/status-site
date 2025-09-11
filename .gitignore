@@ -1,0 +1,6 @@
+# venvs & secrets (if you keep them inside repo folder)
+.venv/
+secrets/
+*.pem
+*.crt
+*.key
