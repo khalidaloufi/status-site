@@ -1,0 +1,886 @@
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/khalidaloufi/Projects/status-site/./tools/exporter.py': [Errno 2] No such file or directory
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/khalidaloufi/Projects/status-site/./tools/exporter.py': [Errno 2] No such file or directory
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+[ssl] SSL verification failed while calling: https://noc.mep.gov.sa/e/b1039091-3675-421d-813f-7649219527e8/api/v2/metrics/query
+[ssl] Hint: set CA_BUNDLE to a PEM file with your Dynatrace Managed root/issuer certs, e.g.:
+[ssl]   export CA_BUNDLE=/path/to/noc_chain.pem
+[ssl] For a temporary test only, you can disable verification with:
+[ssl]   export VERIFY_SSL=false
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 480, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='noc.mep.gov.sa', port=443): Max retries exceeded with url: /e/b1039091-3675-421d-813f-7649219527e8/api/v2/metrics/query?metricSelector=builtin%3Asynthetic.http.availability.location.total%3Afilter%28eq%28dt.entity.http_check%2C%22HTTP_CHECK-18ACCCACE63A1420%22%29%29%3AsplitBy%28%29%3Aavg&from=now-15m&resolution=Inf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/./tools/exporter.py", line 296, in <module>
+    main()
+    ~~~~^^
+  File "/Users/khalidaloufi/Projects/status-site/./tools/exporter.py", line 165, in main
+    avail_15m = query_metric(
+        base,
+    ...<3 lines>...
+        resolution="Inf",
+    )
+  File "/Users/khalidaloufi/Projects/status-site/./tools/exporter.py", line 41, in query_metric
+    r = requests.get(
+        url,
+    ...<3 lines>...
+        verify=_verify_param(),
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/adapters.py", line 675, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='noc.mep.gov.sa', port=443): Max retries exceeded with url: /e/b1039091-3675-421d-813f-7649219527e8/api/v2/metrics/query?metricSelector=builtin%3Asynthetic.http.availability.location.total%3Afilter%28eq%28dt.entity.http_check%2C%22HTTP_CHECK-18ACCCACE63A1420%22%29%29%3AsplitBy%28%29%3Aavg&from=now-15m&resolution=Inf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)')))
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+[ssl] SSL verification failed while calling: https://noc.mep.gov.sa/e/b1039091-3675-421d-813f-7649219527e8/api/v2/metrics/query
+[ssl] Hint: set CA_BUNDLE to a PEM file with your Dynatrace Managed root/issuer certs, e.g.:
+[ssl]   export CA_BUNDLE=/path/to/noc_chain.pem
+[ssl] For a temporary test only, you can disable verification with:
+[ssl]   export VERIFY_SSL=false
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 480, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='noc.mep.gov.sa', port=443): Max retries exceeded with url: /e/b1039091-3675-421d-813f-7649219527e8/api/v2/metrics/query?metricSelector=builtin%3Asynthetic.http.availability.location.total%3Afilter%28eq%28dt.entity.http_check%2C%22HTTP_CHECK-18ACCCACE63A1420%22%29%29%3AsplitBy%28%29%3Aavg&from=now-15m&resolution=Inf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/./tools/exporter.py", line 296, in <module>
+    main()
+    ~~~~^^
+  File "/Users/khalidaloufi/Projects/status-site/./tools/exporter.py", line 165, in main
+    avail_15m = query_metric(
+        base,
+    ...<3 lines>...
+        resolution="Inf",
+    )
+  File "/Users/khalidaloufi/Projects/status-site/./tools/exporter.py", line 41, in query_metric
+    r = requests.get(
+        url,
+    ...<3 lines>...
+        verify=_verify_param(),
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/adapters.py", line 675, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='noc.mep.gov.sa', port=443): Max retries exceeded with url: /e/b1039091-3675-421d-813f-7649219527e8/api/v2/metrics/query?metricSelector=builtin%3Asynthetic.http.availability.location.total%3Afilter%28eq%28dt.entity.http_check%2C%22HTTP_CHECK-18ACCCACE63A1420%22%29%29%3AsplitBy%28%29%3Aavg&from=now-15m&resolution=Inf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)')))
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   53015ca..c24eded  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   c24eded..acdd343  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   acdd343..7952479  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   7952479..7ec780c  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   7ec780c..50043ce  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   50043ce..6fdd064  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   6fdd064..10764c0  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   10764c0..6ee2956  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   6ee2956..f578f0c  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   f578f0c..9257c5b  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   9257c5b..690fcea  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   690fcea..a6fae03  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'noc.mep.gov.sa'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+To https://github.com/khalidaloufi/status-site.git
+   a6fae03..fae2847  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   934fca2..55d940b  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   55d940b..cd90d6e  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   cd90d6e..d517408  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   d517408..6941607  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   6941607..b8cc73e  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   b8cc73e..51fb706  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   51fb706..b0918f8  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   b0918f8..279078c  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   279078c..0371045  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   0371045..1d8d32a  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   1d8d32a..67593b8  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   67593b8..6d41839  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   6d41839..5669abc  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   5669abc..59790d7  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   59790d7..f44fd71  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   f44fd71..4caad92  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   4caad92..9d7f829  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   9d7f829..dd0f372  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   dd0f372..afb87aa  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   afb87aa..fee21c8  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   fee21c8..6504537  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   6504537..93df487  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   93df487..aae6e41  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   aae6e41..d3861f0  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   d3861f0..059b12d  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   059b12d..772f002  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   772f002..75c0782  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   75c0782..c75cf9e  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   c75cf9e..cdd382a  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   cdd382a..4d3147a  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   4d3147a..0327ac0  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   0327ac0..007028f  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   007028f..b62269f  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   b62269f..d4f259a  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   d4f259a..bce4aab  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   bce4aab..2618acc  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   2618acc..2009752  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   2009752..b144759  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   b144759..5d30815  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   5d30815..f1ccd1b  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   f1ccd1b..204928e  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   204928e..eb3d38d  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   eb3d38d..4db4c43  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   4db4c43..8123d79  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   8123d79..6dd041a  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   6dd041a..044d3fc  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   044d3fc..d7ef7c9  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   d7ef7c9..0a4a55b  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   0a4a55b..8b4a283  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   8b4a283..1ff1453  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   1ff1453..13040b6  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   13040b6..7237724  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   7237724..62bd5af  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   62bd5af..4eeb16a  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   4eeb16a..e643d3c  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   e643d3c..3d34334  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   3d34334..d4e7ee4  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   d4e7ee4..dbb4e25  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   dbb4e25..bb86310  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   bb86310..05f6c0a  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   05f6c0a..1f2defa  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   1f2defa..69ba63f  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   69ba63f..2dd88fe  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   2dd88fe..8851702  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   8851702..a59341a  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   a59341a..edfb418  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   edfb418..84a579b  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   84a579b..e4e884c  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+ ! [remote rejected] status-updates -> status-updates (cannot lock ref 'refs/heads/status-updates': is at 4de59da89a3f48980a65d031df8da41d1eef1d92 but expected e4e884c9f5507d90774e51a833dc30df38e8a3e8)
+error: failed to push some refs to 'https://github.com/khalidaloufi/status-site.git'
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+   e4e884c..4de59da  status-updates -> origin/status-updates
+To https://github.com/khalidaloufi/status-site.git
+   4de59da..e16accd  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   e16accd..879f965  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   879f965..6ea5479  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   6ea5479..b310c78  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   b310c78..4dfd33d  status-updates -> status-updates
+Reset branch 'status-updates'
+fatal: unable to access 'https://github.com/khalidaloufi/status-site.git/': Could not resolve host: github.com
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x11170aa50>: Failed to resolve 'noc.mep.gov.sa' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='noc.mep.gov.sa', port=443): Max retries exceeded with url: /e/b1039091-3675-421d-813f-7649219527e8/api/v2/metrics/query?metricSelector=builtin%3Asynthetic.http.availability.location.total%3Afilter%28eq%28dt.entity.http_check%2C%22HTTP_CHECK-18ACCCACE63A1420%22%29%29%3AsplitBy%28%29%3Aavg&from=now-15m&resolution=Inf (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11170aa50>: Failed to resolve 'noc.mep.gov.sa' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/khalidaloufi/Projects/status-site/./tools/exporter.py", line 296, in <module>
+    main()
+    ~~~~^^
+  File "/Users/khalidaloufi/Projects/status-site/./tools/exporter.py", line 165, in main
+    avail_15m = query_metric(
+        base,
+    ...<3 lines>...
+        resolution="Inf",
+    )
+  File "/Users/khalidaloufi/Projects/status-site/./tools/exporter.py", line 41, in query_metric
+    r = requests.get(
+        url,
+    ...<3 lines>...
+        verify=_verify_param(),
+    )
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/khalidaloufi/Projects/status-site/.venv/lib/python3.13/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='noc.mep.gov.sa', port=443): Max retries exceeded with url: /e/b1039091-3675-421d-813f-7649219527e8/api/v2/metrics/query?metricSelector=builtin%3Asynthetic.http.availability.location.total%3Afilter%28eq%28dt.entity.http_check%2C%22HTTP_CHECK-18ACCCACE63A1420%22%29%29%3AsplitBy%28%29%3Aavg&from=now-15m&resolution=Inf (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11170aa50>: Failed to resolve 'noc.mep.gov.sa' ([Errno 8] nodename nor servname provided, or not known)"))
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   4dfd33d..37fd76d  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   37fd76d..a88285d  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   a88285d..82beb05  status-updates -> status-updates
+/Users/khalidaloufi/Projects/status-site/update.sh: line 13: 60 - 09: value too great for base (error token is "09")
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   82beb05..4a7fd90  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   4a7fd90..0a61f59  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   0a61f59..b5c3581  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   b5c3581..20b7998  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   20b7998..2aa6274  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   2aa6274..67134b2  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   67134b2..90e7aae  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   90e7aae..3c61ffb  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   3c61ffb..4089945  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   4089945..df87814  status-updates -> status-updates
+Reset branch 'status-updates'
+From https://github.com/khalidaloufi/status-site
+ * branch            status-updates -> FETCH_HEAD
+To https://github.com/khalidaloufi/status-site.git
+   df87814..1fda09f  status-updates -> status-updates

@@ -74,87 +74,10 @@ async function load() {
     upDiv.append(col);
   });
 }
-
-
-fetch('health.json')
-  .then(r => r.json())
-  .then(h => {
-    const root = document.getElementById('uptime');
-    // Top row: overall (h.uptime)
-    buildUptimeRow(root, 'APIs', h.uptime, (date) => findIncidentsFor(h.incidents, date));
-
-    // Expand per-component rows if user opens the group
-    // Example: render a few
-    const comps = Object.keys(h.daily_uptime || {}).sort();
-    for (const name of comps) {
-      buildUptimeRow(root, `• ${name}`, h.daily_uptime[name], (date) => findIncidentsFor(h.incidents, date, name));
-    }
-  });
-
-function findIncidentsFor(incidents, date, nameFilter) {
-  if (!incidents) return [];
-  // naïve: match incidents whose startTime falls on that date (adjust if you want full span overlap)
-  return incidents.filter(inc => {
-    if (nameFilter && !(inc.title || '').includes(nameFilter)) return false;
-    const d = (inc.startTime || '').slice(0,10);
-    return d === date;
-  });
-}
-
 function prettyStatus(s){ return s==='operational'?'Operational':s==='degraded_performance'?'Degraded performance':s==='major_outage'?'Major outage':'Unknown'; }
 function dotClass(s){ return s==='operational'?'ok':s==='degraded_performance'?'minor':s==='major_outage'?'major':''; }
 function uptimeClass(p){ if (p>=0.999) return 'ok'; if (p>=0.99) return 'minor'; return 'major'; }
 function chunk(arr, size){ const out=[]; for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size)); return out; }
-
-function colorFor(pct) {
-  if (pct == null) return 'u-na';       // gray for missing
-  if (pct >= 0.999) return 'u-good';    // green
-  if (pct >= 0.995) return 'u-ok';      // yellow
-  if (pct >= 0.970) return 'u-warn';    // orange
-  return 'u-bad';                        // red
-}
-
-function lastNDays(n) {
-  const days = [];
-  const today = new Date(); today.setUTCHours(0,0,0,0);
-  for (let i = n-1; i >= 0; i--) {
-    const d = new Date(today); d.setUTCDate(today.getUTCDate() - i);
-    days.push(d.toISOString().slice(0,10)); // YYYY-MM-DD
-  }
-  return days;
-}
-
-function mapSeriesByDate(series) {
-  const map = {};
-  (series || []).forEach(r => { map[r.date] = r.pct; });
-  return map;
-}
-
-function buildUptimeRow(container, label, dailySeries, incidentsForDay = (/*date*/)=>[]) {
-  const row = document.createElement('div');
-  row.className = 'u-row';
-
-  const title = document.createElement('div');
-  title.className = 'u-title';
-  title.textContent = label;
-  row.appendChild(title);
-
-  const bar = document.createElement('div');
-  bar.className = 'u-bar';
-  const byDate = mapSeriesByDate(dailySeries);
-  for (const d of lastNDays(90)) {
-    const pct = byDate[d];   // 0..1 or undefined
-    const dot = document.createElement('div');
-    dot.className = `u-day ${colorFor(pct)}`;
-    dot.setAttribute('title', `${d} — ${pct != null ? (pct*100).toFixed(2)+'% uptime' : 'No data'}`);
-    // Optional: show incidents count in tooltip
-    const inc = incidentsForDay(d);
-    if (inc.length) dot.setAttribute('title', `${d} — ${(pct*100).toFixed(2)}% uptime\n${inc.length} incident(s)`);
-    bar.appendChild(dot);
-  }
-  row.appendChild(bar);
-  container.appendChild(row);
-}
 
 load().catch(err => {
   console.error(err);
